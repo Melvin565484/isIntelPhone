@@ -28,6 +28,22 @@
         <div class="form-check" v-for="(role, index) in roles" :key="index">
           <input type="checkbox" class="form-check-input" :id="role.value" v-model="newUser.selectedRoles" :value="role.value">
           <label class="form-check-label" :for="role.value"> Gerente </label>
+        </div> 
+        <div class="form-check" v-for="(role, index) in roles" :key="index">
+          <input type="checkbox" class="form-check-input" :id="role.value" v-model="newUser.selectedRoles" :value="role.value">
+          <label class="form-check-label" :for="role.value"> Supervisor </label>
+        </div>
+        <div class="form-check" v-for="(role, index) in roles" :key="index">
+          <input type="checkbox" class="form-check-input" :id="role.value" v-model="newUser.selectedRoles" :value="role.value">
+          <label class="form-check-label" :for="role.value"> Cliente </label>
+        </div>
+        <div class="form-check" v-for="(role, index) in roles" :key="index">
+          <input type="checkbox" class="form-check-input" :id="role.value" v-model="newUser.selectedRoles" :value="role.value">
+          <label class="form-check-label" :for="role.value"> Preventa </label>
+        </div>
+        <div class="form-check" v-for="(role, index) in roles" :key="index">
+          <input type="checkbox" class="form-check-input" :id="role.value" v-model="newUser.selectedRoles" :value="role.value">
+          <label class="form-check-label" :for="role.value"> Repartidor </label>
         </div>
       </div>
       <button type="submit" class="btn btn-primary">Agregar usuario</button>

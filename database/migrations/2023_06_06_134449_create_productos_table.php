@@ -18,7 +18,8 @@ return new class extends Migration
             $table->string('nombre_producto');
             $table->integer('precio');
             $table->integer('cantidad');
-            $table->integer('existencias');
+            $table->string('descripcion_producto');
+            
         });
     }
 

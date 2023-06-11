@@ -36,6 +36,7 @@ new Vue({
     }
   });
 
+
   function loginWithFacebook() {
     FB.login(function(response) {
       if (response.authResponse) {

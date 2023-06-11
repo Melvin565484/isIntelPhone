@@ -27,13 +27,19 @@
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="/">Home</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{{ route('producto.index') }}">Productos</a>
-        </li>
+        <!-- ocultar Productos hasta que los usuarios incien sesion-->     
+        @auth
+            <li class="nav-item">
+             <a class="nav-link" href="{{ route('producto.index') }}">Productos</a>
+            </li>
+        @endauth
+
+
         <li class="nav-item">
           <a class="nav-link" href="{{ url('/registros') }}">Catalogo</a>
         </li>
         <li class="nav-item dropdown">
+            
           <!-- boton Dropdown en el navbar que muestra registrarse o inicar sesion -->
     <a class="nav-link dropdown-toggle" href="#" id="registrarseDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         Registrarse

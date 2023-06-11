@@ -18,6 +18,7 @@ use App\Http\Controllers\RegistrosController;
 
 Route::get('/', function () {
     return view('welcome');
+    //return view ('auth.login');
 });
 
 
@@ -33,3 +34,5 @@ Route::resource('producto', ProductoController::class);
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::resource('/producto', ProductoController::class)->middleware('auth');

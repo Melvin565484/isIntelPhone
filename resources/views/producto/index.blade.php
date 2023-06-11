@@ -3,7 +3,6 @@
 
     <h2>Catalogo</h2><br/>
 
-
     <a href="{{ url('producto/create') }} " class="btn btn-primary" >Agregar Producto + </a>
 
     <table class="table">

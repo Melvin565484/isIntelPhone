@@ -35,6 +35,10 @@
         <li class="nav-item">
           <a class="nav-link" href="{{ url('/registros') }}">Registrarse</a>
         </li>
+        <li class="nav-item">
+        <a class="nav-link" href="{{ url('quejas_reclamos) }}">Quejas y Reclamos</a>
+        </li>
+
       </ul>
       <span class="navbar-text">
         

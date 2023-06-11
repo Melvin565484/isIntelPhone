@@ -8,6 +8,7 @@
     <link rel="mask-icon" href="/docs/5.3/assets/img/favicons/safari-pinned-tab.svg" color="#712cf9">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
     
+    <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
     
 </head>
 <body>
@@ -32,10 +33,48 @@
         <li class="nav-item">
           <a class="nav-link" href="{{ url('/registros') }}">Catalogo</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{{ url('/registros') }}">Registrarse</a>
-        </li>
+        <li class="nav-item dropdown">
+          <!-- boton Dropdown en el navbar que muestra registrarse o inicar sesion -->
+    <a class="nav-link dropdown-toggle" href="#" id="registrarseDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Registrarse
+    </a>
+    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="registrarseDropdown">
+        @if (Route::has('login'))
+            @auth
+                <a href="{{ url('/') }}" class="dropdown-item">Home</a>
+            @else
+                <a href="{{ route('login') }}" class="dropdown-item">Login</a>
+                @if (Route::has('register'))
+                    <a href="{{ route('register') }}" class="dropdown-item">Register</a>
+                @endif
+            @endauth
+        @endif
+    </div>
+    
+</li>
+
       </ul>
+      <!-- boton dropdown que muestra el nombre de usuario y cerrar sesion -->
+    @auth
+    <div class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+            {{ Auth::user()->name }} <span class="caret"></span>
+        </a>
+
+        <ul class="dropdown-menu" role="menu">
+            <li>
+                <a href="{{ route('logout') }}"
+                    onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                    Cerrar sesión
+                </a>
+
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                    @csrf
+                </form>
+            </li>
+        </ul>
+    </div>
+@endauth
       <span class="navbar-text">
         
       </span>
@@ -87,4 +126,10 @@
 <footer>
     @yield('footer')
 </footer>
+
+ <!-- scrips css para boton drop -->
+ <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
 </html>
